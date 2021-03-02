@@ -7,7 +7,7 @@
   <div class="form-control">
     <label>Weight</label>
     <input type="number" v-model="weight" name="weight">
-    <input type="submit" value="Submit"/>
+    <input type="submit" value="Submit" class="submit-class"/>
   </form>
 </template>
 
@@ -42,6 +42,9 @@ export default {
 </script>
 
 <style scoped>
+.add-form{
+  border: 2px solid black;
+}
 .form-control{
   margin: 10px 0;
 }
@@ -54,5 +57,8 @@ export default {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+}
+.submit-class {
+  width: 80%;
 }
 </style>
