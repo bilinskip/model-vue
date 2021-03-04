@@ -22,7 +22,8 @@
   </div>
   <div class="form-control">
     <label>Design types</label>
-    <select id="design" v-model="designTypes" @change="setDesignType">
+    <select id="design" v-model="designType" 
+    @change="setDesignType">
       <option v-for="type in designTypes" v-bind:value="type.value">
         {{ type.text }}
       </option>
@@ -46,6 +47,7 @@ export default {
       { text: 'C', value: '4' },
       { text: 'E', value: '2' }
     ],
+      designType: '',
       designTypes: [
       { text: 'fefco 200', value: 'fefco 200' },
       { text: 'fefco 201', value: 'fefco 201' },
