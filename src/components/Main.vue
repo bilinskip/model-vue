@@ -18,13 +18,33 @@ export default {
   },
   data() {
     return {
-         result: ''
+         result: '',
+         model: [],
+         sheetLong: '',
+         sheetWidth: '',
+         sheetArea: '',
+         ruleLenght: '',
+         blankSizeInX: '',
+         blankSizeInY: ''
     }
   },
   methods: {
     addModel(modelDimensions) {
       console.log('wymiary ',modelDimensions);
-      this.result = modelDimensions.height * modelDimensions.width;
+      this.model = modelDimensions;
+     // this.result = modelDimensions.height * modelDimensions.width;
+     this.createModel();
+    },
+    createModel(){
+      if ( this.model.designType == 'fefco 200'){
+        const modelLong = this.model.long;
+        const modelWidth = this.model.width;
+        const modelCardboardType = this.model.cardboardType;
+        
+        this.blankSizeInX = 2*modelLong + 2*modelWidth + 4*modelCardboardType +30;
+        console.log('blank size in X ', this.blankSizeInX);
+      }
+
     }
   },
   components :{

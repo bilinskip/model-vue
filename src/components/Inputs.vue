@@ -15,9 +15,17 @@
   <div class="form-control">
     <label>Cardboard types</label>
     <select id="cardboard" v-model="carboardType" @change="setCardboardType">
-      <option v-for="option in options" v-bind:value="option.value">
-    {{ option.text }}
-  </option>
+      <option v-for="type in cardboardTypes" v-bind:value="type.value">
+        {{ type.text }}
+      </option>
+    </select>
+  </div>
+  <div class="form-control">
+    <label>Design types</label>
+    <select id="design" v-model="designTypes" @change="setDesignType">
+      <option v-for="type in designTypes" v-bind:value="type.value">
+        {{ type.text }}
+      </option>
     </select>
   </div>
     <input type="submit" value="Submit" class="submit-class"/>
@@ -33,10 +41,15 @@ export default {
       width: '',
       height: '',
       carboardType: '',
-      options: [
+      cardboardTypes: [
       { text: 'B', value: '3' },
       { text: 'C', value: '4' },
       { text: 'E', value: '2' }
+    ],
+      designTypes: [
+      { text: 'fefco 200', value: 'fefco 200' },
+      { text: 'fefco 201', value: 'fefco 201' },
+      { text: 'fefco 202', value: 'fefco 202' }
     ]
     }
   },
@@ -47,16 +60,22 @@ export default {
         long: this.long,
         width: this.width,
         height: this.height,
-        cardboardType: this.cardboardType 
+        cardboardType: this.cardboardType,
+        designType: this.designType
       };
       
       this.$emit('add-model', modelDimensions);
-      this.long = '';
+     /* this.long = '';
       this.width = '';
       this.height = '';
+      this.cardboardType = '';
+      this.designType = '';*/
     },
     setCardboardType(event){
       this.cardboardType = event.target.value;
+    },
+    setDesignType(event){
+      this.designType = event.target.value;
     }
   }
 }
@@ -79,5 +98,7 @@ export default {
 .submit-class {
   width: 80%;
   height: 60px;
+  font-size: 20px;
+  font-weight: 700;
 }
 </style>
