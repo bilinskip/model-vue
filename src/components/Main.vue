@@ -23,7 +23,8 @@ export default {
   },
   methods: {
     addModel(modelDimensions) {
-      this.result = modelDimensions.height * modelDimensions.weight;
+      console.log('wymiary ',modelDimensions);
+      this.result = modelDimensions.height * modelDimensions.width;
     }
   },
   components :{
