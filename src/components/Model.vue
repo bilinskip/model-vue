@@ -1,6 +1,8 @@
 <template>
   <div>
-    <p> Result is {{result}}</p>
+    <p> Area is {{area}}</p>
+    <p> Rule Length is {{ruleLength}}</p>
+    <p> {{sheetSize}}</p>
   </div>
 </template>
 
@@ -8,7 +10,9 @@
 export default {
   name: 'Model',
   props: {
-    result: Number
+    area: Number,
+    ruleLength: Number,
+    sheetSize: String
   }
 }
 </script>
