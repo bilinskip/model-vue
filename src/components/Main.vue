@@ -39,21 +39,15 @@ export default {
       if (this.model.designType == 'fefco 200'){
         const modelLong = this.model.long;
         const modelWidth = this.model.width;
-        const modelHeight = Number(this.model.height);
+        const modelHeight = this.model.height;
         const modelCardboardType = this.model.cardboardType;
     
         this.blankSizeInX = 2*modelLong + 2*modelWidth + 4*modelCardboardType +30;
-        console.log('blank size in X ', this.blankSizeInX);
-        this.blankSizeInY = modelHeight + modelWidth/2 + ((3/2)*modelCardboardType);
-        console.log('blank size in Y ', this.blankSizeInY);
+        this.blankSizeInY = 1*modelHeight + modelWidth/2 + ((3/2)*modelCardboardType);
         this.sheetSize =`sheet size: ${this.blankSizeInY}x${this.blankSizeInX}`;
-        console.log('sheet size ', this.sheetSize);
         this.sheetArea = (this.blankSizeInX * this.blankSizeInY) / 1000000;
-        console.log('Gównania Area ', this.sheetArea);
 
         this.ruleLength = (6*modelLong + 10*modelWidth + 22*modelCardboardType + 6*modelHeight + 60) / 1000;
-        console.log('dlugość noża ', this.ruleLength);
-
       }
   
     }
