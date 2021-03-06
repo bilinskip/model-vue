@@ -54,7 +54,7 @@ export default {
       this.ruleLength = (6*model.long + 10*model.width + 22*model.cardboardType + 6*model.height + 60) / 1000;
     },
      createFefco201(model){
-       console.log('model in fefco 201 ', model);
+      console.log('model in fefco 201 ', model);
       this.blankSizeInX = 2*model.long + 2*model.width + 2*model.cardboardType +30;
       this.blankSizeInY = model.height + model.width/2 + (model.cardboardType);
       this.sheetSize =`sheet size: ${this.blankSizeInY}x${this.blankSizeInX}`;
