@@ -59,10 +59,10 @@ export default {
     onSubmit(e) {
       e.preventDefault()
       const modelDimensions = {
-        long: this.long,
-        width: this.width,
-        height: this.height,
-        cardboardType: this.cardboardType,
+        long: Number(this.long),
+        width:  Number(this.width),
+        height:  Number(this.height),
+        cardboardType:  Number(this.cardboardType),
         designType: this.designType
       };
       
