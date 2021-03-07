@@ -31,6 +31,13 @@
   </div>
     <input type="submit" value="Submit" class="submit-class"/>
   </form>
+  <div v-if="errors.length" class="errors-class">
+    <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="error in errors">{{ error }}</li>
+    </ul>
+  </div>
+
 </template>
 
 <script>
@@ -38,6 +45,7 @@ export default {
   name: 'Inputs',
   data() {
     return {
+      errors: [],
       long: '',
       width: '',
       height: '',
@@ -49,9 +57,9 @@ export default {
     ],
       designType: '',
       designTypes: [
-      { text: 'fefco 200', value: 'fefco 200' },
-      { text: 'fefco 201', value: 'fefco 201' },
-      { text: 'fefco 202', value: 'fefco 202' }
+      { text: 'fefco 200', value: 'fefco200' },
+      { text: 'fefco 201', value: 'fefco201' },
+      { text: 'fefco 202', value: 'fefco202' }
     ]
     }
   },
@@ -65,8 +73,28 @@ export default {
         cardboardType:  Number(this.cardboardType),
         designType: this.designType
       };
+       this.errors = [];
+      if (!modelDimensions.long){
+        this.errors.push("Long is required");
+      }
+      if (!modelDimensions.width){
+        this.errors.push("Width is required");
+      }
+      if (!modelDimensions.height){
+        this.errors.push("Height is required");
+      }
+      if (!modelDimensions.cardboardType){
+        this.errors.push("Cardboard Type is required");
+      }
+      if (!modelDimensions.designType){
+        this.errors.push("Design Type is required");
+      }
       
-      this.$emit('add-model', modelDimensions);
+      if (!this.errors.length) {
+        this.$emit('add-model', modelDimensions);
+      }
+
+      
      /* this.long = '';
       this.width = '';
       this.height = '';
@@ -102,5 +130,11 @@ export default {
   height: 60px;
   font-size: 20px;
   font-weight: 700;
+}
+.errors-class{
+  color: red;
+}
+li {
+  display:list-item;
 }
 </style>

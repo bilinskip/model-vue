@@ -20,13 +20,13 @@ export default {
   },
   data(){
       return {
-         ruleLength: '',
-         blankSizeInX: '',
-         blankSizeInY: '',
-         sheetSize: '',
-         sheetArea: '',
-         FEFCO200: 'fefco 200',
-         FEFCO201: 'fefco 201',
+        ruleLength: '',
+        blankSizeInX: '',
+        blankSizeInY: '',
+        sheetSize: '',
+        sheetArea: '',
+        FEFCO200: 'fefco200',
+        FEFCO201: 'fefco201',
       }
   },
   watch: {
