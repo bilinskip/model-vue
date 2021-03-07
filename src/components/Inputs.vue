@@ -95,7 +95,7 @@ export default {
       if (modelDimensions.long > 9999
         || modelDimensions.width > 999
         || modelDimensions.height > 999){
-          this.errors.push("Each model dimensions has to be lower than 10000");
+          this.errors.push("Each model dimension has to be lower than 10000");
         }
       
       if (!this.errors.length) {
