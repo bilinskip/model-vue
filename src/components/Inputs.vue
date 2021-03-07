@@ -73,6 +73,7 @@ export default {
         cardboardType:  Number(this.cardboardType),
         designType: this.designType
       };
+      console.log('## long digits ', modelDimensions.long.toString().length);
        this.errors = [];
       if (!modelDimensions.long){
         this.errors.push("Long is required");
@@ -92,9 +93,9 @@ export default {
       if (modelDimensions.width > modelDimensions.long){
         this.errors.push("Model Long has to be greater than Model Width");
       }
-      if (modelDimensions.long > 10000
-        || modelDimensions.width > 10000
-        || modelDimensions.height > 10000){
+      if (modelDimensions.long.toString().length > 4
+        || modelDimensions.width.toString().length > 4
+        || modelDimensions.height.toString().length > 4){
           this.errors.push("Each model dimension has to be lower than 10000");
         }
       
