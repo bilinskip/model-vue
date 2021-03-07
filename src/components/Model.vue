@@ -48,7 +48,8 @@ export default {
     },
     createFefco200(model){
       console.log('model in fefco 200 ', model);
-      this.blankSizeInX = this.setBlankSizeInX(2*model.long, 2*model.width,  4*model.cardboardType, 30);
+      this.blankSizeInX = this.setBlankSizeInX(2*model.long, 2*model.width, 4*model.cardboardType, 30);
+      console.log('X ', this.blankSizeInX);
       this.blankSizeInY = this.setBlankSizeInY(model.height, model.width/2, (3/2)*model.cardboardType);
       this.sheetSize = this.setSheetSize(this.blankSizeInX, this.blankSizeInY);      
       this.sheetArea = this.setSheetArea(this.blankSizeInX, this.blankSizeInY);
@@ -81,11 +82,11 @@ export default {
     },
 
     setBlankSizeInX(long, width, cardboardType, constantValue){
-      return height * width * cardboardType + constantValue;;
+      return long + width + cardboardType + constantValue;
     },
 
     setBlankSizeInY(height, width, cardboardType){
-      return height * width * cardboardType 
+      return height + width + cardboardType;
     },
 
     setRuleLength(long, width, height, cardboardType, constantValue){
