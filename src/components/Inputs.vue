@@ -91,7 +91,7 @@ export default {
         this.errors.push("Design Type is required");
       }
       if (modelDimensions.width > modelDimensions.long){
-        this.errors.push("Model Long has to be greater than Model Width");
+        this.errors.push("model Long has to be greater than model Width");
       }
       if (modelDimensions.long.toString().length > 4
         || modelDimensions.width.toString().length > 4
