@@ -26,7 +26,7 @@ export default {
          sheetSize: '',
          sheetArea: '',
          FEFCO200: 'fefco 200',
-         FEFCO201: 'fefco 201'
+         FEFCO201: 'fefco 201',
       }
   },
   watch: {
@@ -50,7 +50,7 @@ export default {
       this.blankSizeInX = 2*model.long + 2*model.width + 4*model.cardboardType +30;
       this.blankSizeInY = model.height + model.width/2 + ((3/2)*model.cardboardType);
       this.sheetSize =`sheet size: ${this.blankSizeInY}x${this.blankSizeInX}`;
-      this.sheetArea = (this.blankSizeInX * this.blankSizeInY) / 1000000;
+      this.sheetArea = this.setSheetArea(this.blankSizeInX, this.blankSizeInY);
       this.ruleLength = (6*model.long + 10*model.width + 22*model.cardboardType + 6*model.height + 60) / 1000;
     },
      createFefco201(model){
@@ -58,8 +58,12 @@ export default {
       this.blankSizeInX = 2*model.long + 2*model.width + 2*model.cardboardType +30;
       this.blankSizeInY = model.height + model.width/2 + (model.cardboardType);
       this.sheetSize =`sheet size: ${this.blankSizeInY}x${this.blankSizeInX}`;
-      this.sheetArea = (this.blankSizeInX * this.blankSizeInY) / 1000000;
+      this.sheetArea = this.setSheetArea(this.blankSizeInX, this.blankSizeInY);
       this.ruleLength = (8*model.long + 8*model.width + 20*model.cardboardType + 8*model.height + 60) / 1000;
+    },
+
+    setSheetArea(blankSizeInX, blankSizeInY){
+      return (this.blankSizeInX * this.blankSizeInY) / 1000000;
     }
   }
 }
