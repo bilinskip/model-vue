@@ -92,9 +92,9 @@ export default {
       if (modelDimensions.width > modelDimensions.long){
         this.errors.push("Model Long has to be greater than Model Width");
       }
-      if (modelDimensions.long > 9999
-        || modelDimensions.width > 999
-        || modelDimensions.height > 999){
+      if (modelDimensions.long > 10000
+        || modelDimensions.width > 10000
+        || modelDimensions.height > 10000){
           this.errors.push("Each model dimension has to be lower than 10000");
         }
       
