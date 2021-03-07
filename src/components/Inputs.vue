@@ -80,6 +80,9 @@ export default {
       if (!modelDimensions.width){
         this.errors.push("Width is required");
       }
+      if (modelDimensions.width > modelDimensions.long){
+        this.errors.push("Model Long has to be greater than Model Width");
+      }
       if (!modelDimensions.height){
         this.errors.push("Height is required");
       }
