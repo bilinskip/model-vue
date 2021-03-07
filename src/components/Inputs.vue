@@ -80,9 +80,6 @@ export default {
       if (!modelDimensions.width){
         this.errors.push("Width is required");
       }
-      if (modelDimensions.width > modelDimensions.long){
-        this.errors.push("Model Long has to be greater than Model Width");
-      }
       if (!modelDimensions.height){
         this.errors.push("Height is required");
       }
@@ -92,6 +89,14 @@ export default {
       if (!modelDimensions.designType){
         this.errors.push("Design Type is required");
       }
+      if (modelDimensions.width > modelDimensions.long){
+        this.errors.push("Model Long has to be greater than Model Width");
+      }
+      if (modelDimensions.long > 9999
+        || modelDimensions.width > 999
+        || modelDimensions.height > 999){
+          this.errors.push("Each model dimensions has to be lower than 10000");
+        }
       
       if (!this.errors.length) {
         this.$emit('add-model', modelDimensions);
