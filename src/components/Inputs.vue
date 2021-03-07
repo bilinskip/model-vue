@@ -135,9 +135,11 @@ export default {
   font-weight: 700;
 }
 .errors-class{
+  margin-top: 10px;
   color: red;
 }
 li {
   display:list-item;
+  padding: 2px;
 }
 </style>
