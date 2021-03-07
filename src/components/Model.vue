@@ -49,17 +49,20 @@ export default {
       console.log('model in fefco 200 ', model);
       this.blankSizeInX = 2*model.long + 2*model.width + 4*model.cardboardType +30;
       this.blankSizeInY = model.height + model.width/2 + ((3/2)*model.cardboardType);
-      this.sheetSize =`sheet size: ${this.blankSizeInY}x${this.blankSizeInX}`;
-      this.sheetArea = this.setSheetArea(this.blankSizeInX, this.blankSizeInY);
+      this.sheetSize = this.setSheetSize(this.blankSizeInX, this.blankSizeInY);      this.sheetArea = this.setSheetArea(this.blankSizeInX, this.blankSizeInY);
       this.ruleLength = (6*model.long + 10*model.width + 22*model.cardboardType + 6*model.height + 60) / 1000;
     },
      createFefco201(model){
       console.log('model in fefco 201 ', model);
       this.blankSizeInX = 2*model.long + 2*model.width + 2*model.cardboardType +30;
       this.blankSizeInY = model.height + model.width/2 + (model.cardboardType);
-      this.sheetSize =`sheet size: ${this.blankSizeInY}x${this.blankSizeInX}`;
+      this.sheetSize = this.setSheetSize(this.blankSizeInX, this.blankSizeInY);
       this.sheetArea = this.setSheetArea(this.blankSizeInX, this.blankSizeInY);
       this.ruleLength = (8*model.long + 8*model.width + 20*model.cardboardType + 8*model.height + 60) / 1000;
+    },
+
+    setSheetSize(blankSizeInX, blankSizeInY){
+      return `Sheet Size is ${blankSizeInX}x${blankSizeInY}`;
     },
 
     setSheetArea(blankSizeInX, blankSizeInY){
@@ -71,6 +74,7 @@ export default {
 <style scoped>
   .model-div{
     border: 2px solid black;
+    margin-top: 20px;
   }
   
 </style>
