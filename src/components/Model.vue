@@ -65,19 +65,18 @@ export default {
           this.currentModel.valuesForRuleLength.heigth = 6*this.model.height;  
           this.currentModel.valuesForRuleLength.constantValue = 60;  */
       }
-      else if (this.model.designType === this.FEFCO201){
+      /*else if (this.model.designType === this.FEFCO201){
         this.createFefco201(this.model);
       }
       else if (this.model.designType === this.FEFCO202){
         this.createFefco201(this.model);
-      }
+      }*/
       console.log('## current model ', currentModel);
       this.createModel(currentModel);
 
     },
     createModel(model){
       this.blankSizeInX = this.setBlankSizeInX(model.long, model.widthInX, model.cardboardTypes.inX, model.constantValueForX);
-      console.log('## value in X ', this.blankSizeInX)
       this.blankSizeInY = this.setBlankSizeInY(model.height, model.widthInY, model.cardboardTypes.inY);
       this.sheetSize = this.setSheetSize(this.blankSizeInX, this.blankSizeInY);      
       this.sheetArea = this.setSheetArea(this.blankSizeInX, this.blankSizeInY);
