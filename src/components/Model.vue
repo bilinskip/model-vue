@@ -37,16 +37,28 @@ export default {
   },
   methods: {
     setModel(){
-      console.log('this.model.designType', this.model.designType);
+      let currentModel = {
+        long: '',
+        widthInX: '',
+        widthInY: '',
+        height: '',
+        constantValueForX: '',
+        cardboardTypes: {
+          inX: '',
+          inY: ''
+        },
+      };
       if (this.model.designType == this.FEFCO200){
-        this.createFefco200(this.model);
-         /* this.currentModel.long =  2*this.model.long;
-          this.currentModel.widthInX = 2*this.model.width;
-          this.currentModel.widthInY = this.model.width/2;
-          this.currentModel.height = this.model.height;
-          this.currentModel.cardboardTypeInX = 4*this.model.cardboardType;
+        currentModel.long =  2*this.model.long;
+        currentModel.widthInX = 2*this.model.width;
+        currentModel.widthInY = this.model.width/2;
+        currentModel.height = this.model.height;
+        currentModel.constantValueForX = 30;
+        currentModel.cardboardTypes.inX = 4*this.model.cardboardType;
+        currentModel.cardboardTypes.inY = (3/2)*this.model.cardboardType;
+         /* this.
           this.currentModel.cardboardTypeInY = (3/2)*this.model.cardboardType;
-          this.currentModel.constantValueForX = 30;
+       
           this.currentModel.valuesForRuleLength.long = 6*this.model.long;
           this.currentModel.valuesForRuleLength.width = 10*this.model.width;
           this.currentModel.valuesForRuleLength.cardboardType = 22*this.model.cardboardType;
@@ -59,18 +71,19 @@ export default {
       else if (this.model.designType === this.FEFCO202){
         this.createFefco201(this.model);
       }
-      //console.log('## current model ', currentModel );
-     // this.createModel(currentModel);
+      console.log('## current model ', currentModel);
+      this.createModel(currentModel);
 
     },
-   /* createModel(model){
-      this.model.blankSizeInX = this.setBlankSizeInX(model.long, model.widthInX, model.cardboardTypeInX, model.constantValueForX);
-      this.model.blankSizeInY = this.setBlankSizeInY(model.height, model.widthInY, model.cardboardTypeInY);
-      this.model.sheetSize = this.setSheetSize(this.model.blankSizeInX, this.model.blankSizeInY);      
-      this.model.sheetArea = this.setSheetArea(this.model.blankSizeInX, this.model.blankSizeInY);
-      this.model.ruleLength = this.setRuleLength(model.valuesForRuleLength.long, model.valuesForRuleLength.width, model.valuesForRuleLength.cardboardType,  model.valuesForRuleLength.height, model.valuesForRuleLength.constantValue);
+    createModel(model){
+      this.blankSizeInX = this.setBlankSizeInX(model.long, model.widthInX, model.cardboardTypes.inX, model.constantValueForX);
+      console.log('## value in X ', this.blankSizeInX)
+      this.blankSizeInY = this.setBlankSizeInY(model.height, model.widthInY, model.cardboardTypes.inY);
+      this.sheetSize = this.setSheetSize(this.blankSizeInX, this.blankSizeInY);      
+      this.sheetArea = this.setSheetArea(this.blankSizeInX, this.blankSizeInY);
+     /* this.model.ruleLength = this.setRuleLength(model.valuesForRuleLength.long, model.valuesForRuleLength.width, model.valuesForRuleLength.cardboardType,  model.valuesForRuleLength.height, model.valuesForRuleLength.constantValue);*/
 
-    },*/
+    },
     createFefco200(model){
       console.log('model in fefco 200 ', model);
       this.blankSizeInX = this.setBlankSizeInX(2*model.long, 2*model.width, 4*model.cardboardType, 30);
