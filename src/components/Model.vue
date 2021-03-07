@@ -66,7 +66,7 @@ export default {
     },
 
     setSheetArea(blankSizeInX, blankSizeInY){
-      return (this.blankSizeInX * this.blankSizeInY) / 1000000;
+      return parseFloat((this.blankSizeInX * this.blankSizeInY) / 1000000).toFixed(2);
     }
   }
 }
