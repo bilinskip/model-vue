@@ -93,6 +93,9 @@ export default {
       if (!this.errors.length) {
         this.$emit('add-model', modelDimensions);
       }
+      else {
+        this.$emit('add-model', []);
+      }
 
       
      /* this.long = '';
